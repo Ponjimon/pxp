@@ -5,11 +5,13 @@
   "license": "MIT",
   "scripts": {
     "prepare": "husky install",
-    "build": "cross-env NODE_ENV=production remix build",
+    "build": "yarn run build:css && cross-env NODE_ENV=production remix build",
+    "build:css": "tailwindcss -m -i ./styles/app.css -o app/styles/app.css",
     "dev": "cross-env NODE_ENV=development run-p dev:*",
     "postinstall": "remix setup cloudflare",
     "dev:remix": "remix watch",
     "dev:wrangler": "wrangler pages dev --local ./public --kv sessionStorage --binding $(cat .env)",
+    "dev:css": "tailwindcss -w -i ./styles/app.css -o app/styles/app.css",
     "start": "yarn run dev:wrangler"
   },
   "dependencies": {
