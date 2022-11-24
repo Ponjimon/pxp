@@ -1,0 +1,74 @@
+{
+  "name": "nextjs-typescript-template",
+  "version": "1.0.0",
+  "description": "A quick template for NextJS using TypeScript.",
+  "main": "index.js",
+  "repository": "https://github.com/ponjimon/nextjs-typescript-template",
+  "author": "Simon <sn@hitbox.tv>",
+  "license": "MIT",
+  "scripts": {
+    "prepare": "husky install",
+    "dev": "next dev --turbo",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^17.3.0",
+    "@commitlint/config-conventional": "^17.3.0",
+    "@types/node": "^18.11.9",
+    "@types/react": "^18.0.25",
+    "@types/styled-components": "^5.1.26",
+    "@typescript-eslint/eslint-plugin": "^5.44.0",
+    "@typescript-eslint/parser": "^5.44.0",
+    "babel-plugin-styled-components": "^2.0.7",
+    "eslint": "^8.28.0",
+    "eslint-config-next": "^13.0.5",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "husky": "^8.0.2",
+    "lint-staged": "^13.0.3",
+    "next-offline": "^5.0.5",
+    "prettier": "^2.8.0",
+    "typescript": "^4.9.3"
+  },
+  "babel": {
+    "presets": [
+      "next/babel"
+    ],
+    "plugins": [
+      [
+        "styled-components",
+        {
+          "ssr": true,
+          "displayName": true,
+          "preprocess": false
+        }
+      ]
+    ]
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "prettier --write",
+      "eslint --fix"
+    ]
+  },
+  "eslintIgnore": [
+    "next.config.js",
+    "lib/",
+    "*.d.ts"
+  ],
+  "dependencies": {
+    "next": "^13.0.5",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "styled-components": "^5.3.6",
+    "styled-reset": "^4.4.2"
+  }
+}
